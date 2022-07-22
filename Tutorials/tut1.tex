@@ -1,0 +1,36 @@
+\documentclass[11pt]{article}
+\usepackage[english]{babel}
+\usepackage{minted}
+\usepackage{graphicx}
+\usepackage[left=25mm, top=25mm, bottom=30mm, right=25mm]{geometry}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=cyan]{hyperref}
+
+\title{COL351: Tutorial 1}
+\author{Sayam Sethi}
+\date{August 2021}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Question 1}
+The time complexity can be formulated as $T(n) = T(\sqrt{n}) + T(n - \sqrt{n}) + c \cdot n$. On building the recursion tree, we observe that each level takes $O(n)$ steps. Thus, the time complexity can be reduced to:
+\begin{equation}
+    T(n) = O(n) \cdot H(n), H(n) = 1 + H(n - \sqrt{n})
+\end{equation}
+It can be shown that $H(n) = \Theta(\sqrt{n})$ as follows:
+
+\subsection{$H(n) = o(\sqrt{n})$}
+In each step, the reduction in the value of $n$ is $\leq \sqrt{n}$. Thus, the total number of steps are $\geq n / \sqrt{n} = \sqrt{n}$. Therefore, $H(n) = o(\sqrt{n})$.
+
+\subsection{$H(n) = O(\sqrt{n})$}
+Consider the equation $H(n) = k + O(H(n/2))$. Here, $k$ represents the steps taken for $n$ to reduce to a value of $n/2$. We know that the decrement of $n$ for these $k$ steps, lies between $\sqrt{n}$ and $\sqrt{n/2}$. Thus, $k \leq \frac{n - n/2}{\sqrt{n/2}} = \sqrt{n/2}$.\par
+Now, reducing the above equation, we get the summation, $H(n) = \sqrt{n/2} + \sqrt{n/4} + \cdots + 1$. This summation is $O(\sqrt{n})$. Thus, $H(n) = O(n)$.
+
+\section{Question 2}
+
+
+\end{document}
+
